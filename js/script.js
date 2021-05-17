@@ -11,7 +11,9 @@
     ];
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({content: newTaskContent,});
+        tasks.push({
+            content: newTaskContent,
+        });
         render();
     };
 
@@ -23,6 +25,10 @@
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
+    }
+
+    const eraseInputField = () => {
+        document.querySelector(".js-newTask").value = "";
     }
 
     const bindEvents = () => {
@@ -57,6 +63,7 @@
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
         bindEvents();
+        eraseInputField();
     }
 
     const onFormSubmit = (event) => {
