@@ -31,6 +31,10 @@
         document.querySelector(".js-newTask").value = "";
     }
 
+    const focusInputField = () => {
+        document.querySelector(".js-newTask").focus();
+    }
+
     const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -64,6 +68,7 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
         bindEvents();
         eraseInputField();
+        focusInputField();
     }
 
     const onFormSubmit = (event) => {
@@ -79,6 +84,7 @@
         const form = document.querySelector(".js-form");
         form.addEventListener("submit", onFormSubmit);
         render();
+        focusInputField();
     };
 
     init();
