@@ -21,6 +21,12 @@
     render();
   };
 
+  const setAllTasksDone = () => {
+    tasks = tasks.map((task) => ({ ...task, done: true }));
+
+    render();
+  };
+
   const eraseInputField = () => {
     document.querySelector(".js-newTask").value = "";
   };
@@ -47,7 +53,12 @@
     });
   };
 
-  const bindButtonsEvents = () => {};
+  const bindButtonsEvents = () => {
+    const setAllTasksDoneButton=document.querySelector(".js-setAllTasksDone")
+    if (setAllTasksDoneButton){
+      setAllTasksDoneButton.addEventListener("click", setAllTasksDone);
+    }
+  };
 
   const renderTask = () => {
     let htmlString = "";
@@ -76,7 +87,9 @@
       return;
     }
     buttonsElement.innerHTML = `
-        <button class="section__button js-hideDoneTasks">${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone</button>
+        <button class="section__button js-hideDoneTasks">${
+          hideDoneTasks ? "Pokaż" : "Ukryj"
+        } ukończone</button>
         <button 
             class="section__button js-setAllTasksDone"
             ${tasks.every(({ done }) => done) ? " disabled" : ""}
