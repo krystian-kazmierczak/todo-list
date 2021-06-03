@@ -17,6 +17,7 @@
   border: none;
   padding: 10px 15px;
   margin-left: 15px;
+  transition: 0.2s;
   cursor: pointer;
 }
 
@@ -29,6 +30,7 @@
 
 .form__button:hover {
   background-color: hsl(180, 100%, 30%);
+  transform: scale(1.2);
 }
 
 .form__button:active {

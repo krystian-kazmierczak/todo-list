@@ -29,6 +29,7 @@
   margin: 0 10px;
   border: none;
   cursor: pointer;
+  transition: background 0.5s;
 }
 
 .list__button--done {
