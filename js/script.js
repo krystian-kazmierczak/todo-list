@@ -27,6 +27,11 @@
     render();
   };
 
+  const toggleHideDoneTasks = () => {
+    hideDoneTasks = !hideDoneTasks;
+    render();
+  };
+
   const eraseInputField = () => {
     document.querySelector(".js-newTask").value = "";
   };
@@ -54,9 +59,13 @@
   };
 
   const bindButtonsEvents = () => {
-    const setAllTasksDoneButton=document.querySelector(".js-setAllTasksDone")
-    if (setAllTasksDoneButton){
+    const setAllTasksDoneButton = document.querySelector(".js-setAllTasksDone");
+    if (setAllTasksDoneButton) {
       setAllTasksDoneButton.addEventListener("click", setAllTasksDone);
+    }
+    const toggleDoneTasksButton = document.querySelector(".js-hideDoneTasks");
+    if (toggleDoneTasksButton) {
+      toggleDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
     }
   };
 
@@ -65,7 +74,7 @@
 
     for (const task of tasks) {
       htmlString += ` 
-            <li class="list__item">
+            <li class="list__item${task.done && hideDoneTasks ? " list__item--hidden": ""}">
                <button class="list__button list__button--done js-done">${
                  task.done ? "✓" : " "
                }</button>
