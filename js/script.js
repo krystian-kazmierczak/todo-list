@@ -1,5 +1,6 @@
 {
   let tasks = [];
+  let hideDoneTasks = false;
 
   const addNewTask = (newTaskContent) => {
     tasks = [...tasks, { content: newTaskContent }];
@@ -46,6 +47,8 @@
     });
   };
 
+  const bindButtonsEvents = () => {};
+
   const renderTask = () => {
     let htmlString = "";
 
@@ -65,12 +68,29 @@
     document.querySelector(".js-tasks").innerHTML = htmlString;
   };
 
-  const renderButtons = () => {};
+  const renderButtons = () => {
+    const buttonsElement = document.querySelector(".js-buttons");
+
+    if (tasks.length < 1) {
+      buttonsElement.innerHTML = "";
+      return;
+    }
+    buttonsElement.innerHTML = `
+        <button class="section__button js-hideDoneTasks">${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone</button>
+        <button 
+            class="section__button js-setAllTasksDone"
+            ${tasks.every(({ done }) => done) ? " disabled" : ""}
+        >
+            Ukończ wszystkie
+        </button>
+      `;
+  };
 
   const render = () => {
     renderTask();
     renderButtons();
     bindEvents();
+    bindButtonsEvents();
     eraseInputField();
     focusInputField();
   };
