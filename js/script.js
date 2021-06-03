@@ -70,11 +70,10 @@
   };
 
   const renderTask = () => {
-    let htmlString = "";
-
-    for (const task of tasks) {
-      htmlString += ` 
-            <li class="list__item${task.done && hideDoneTasks ? " list__item--hidden": ""}">
+    const taskAsHTML = (task) => ` 
+            <li class="list__item${
+              task.done && hideDoneTasks ? " list__item--hidden" : ""
+            }">
                <button class="list__button list__button--done js-done">${
                  task.done ? "✓" : " "
                }</button>
@@ -84,14 +83,14 @@
                <button class="list__button list__button--remove js-remove">🗑</button>
             </li>
             `;
-    }
-    document.querySelector(".js-tasks").innerHTML = htmlString;
+
+    document.querySelector(".js-tasks").innerHTML = tasks.map(taskAsHTML).join("");
   };
 
   const renderButtons = () => {
     const buttonsElement = document.querySelector(".js-buttons");
 
-    if (tasks.length < 1) {
+    if (!tasks.length) {
       buttonsElement.innerHTML = "";
       return;
     }
@@ -110,9 +109,11 @@
 
   const render = () => {
     renderTask();
-    renderButtons();
     bindEvents();
+
+    renderButtons();
     bindButtonsEvents();
+
     eraseInputField();
     focusInputField();
   };
