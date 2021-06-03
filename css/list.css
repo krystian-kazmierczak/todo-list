@@ -13,6 +13,10 @@
   padding: 5px;
 }
 
+.list__item--hidden {
+  display: none;
+}
+
 .list__taskContent {
   padding: 10px 0;
   word-break: break-all;
