@@ -107,7 +107,6 @@
 
     renderButtons();
     bindButtonsEvents();
-
   };
 
   const onFormSubmit = (event) => {
