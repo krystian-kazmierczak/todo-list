@@ -32,14 +32,6 @@
     render();
   };
 
-  const eraseInputField = () => {
-    document.querySelector(".js-newTask").value = "";
-  };
-
-  const focusInputField = () => {
-    document.querySelector(".js-newTask").focus();
-  };
-
   const bindEvents = () => {
     const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -84,7 +76,9 @@
             </li>
             `;
 
-    document.querySelector(".js-tasks").innerHTML = tasks.map(taskAsHTML).join("");
+    document.querySelector(".js-tasks").innerHTML = tasks
+      .map(taskAsHTML)
+      .join("");
   };
 
   const renderButtons = () => {
@@ -114,18 +108,20 @@
     renderButtons();
     bindButtonsEvents();
 
-    eraseInputField();
-    focusInputField();
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    const newTaskContent = document.querySelector(".js-newTask").value.trim();
-    if (newTaskContent === "") {
-      focusInputField();
-      return;
+
+    const newTaskElement = document.querySelector(".js-newTask");
+    const newTaskContent = newTaskElement.value.trim();
+
+    if (newTaskContent !== "") {
+      addNewTask(newTaskContent);
+      newTaskElement.value = "";
     }
-    addNewTask(newTaskContent);
+
+    newTaskElement.focus();
   };
 
   const init = () => {
