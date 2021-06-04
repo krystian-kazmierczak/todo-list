@@ -1,26 +1,31 @@
 .section {
-  margin: 0 auto 10px;
+  margin: 20px;
   background-color: white;
 }
 
 .section__header {
+  padding: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+.section__title {
+  margin: 0;
+}
+
+.section__box {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 20px;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 2px solid #ddd;
 }
 
 @media (max-width: 767px) {
-  .section__header {
+  .section__box {
     grid-template-columns: 1fr;
   }
-}
-
-.section__title {
-  margin: 0;
 }
 
 .section__buttons {
