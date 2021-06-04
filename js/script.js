@@ -23,12 +23,13 @@
 
   const setAllTasksDone = () => {
     tasks = tasks.map((task) => ({ ...task, done: true }));
-
     render();
   };
 
   const toggleHideDoneTasks = () => {
-    hideDoneTasks = !hideDoneTasks;
+    if (tasks.some((task) => task.done)) {
+      hideDoneTasks = !hideDoneTasks;
+    }
     render();
   };
 
@@ -55,6 +56,7 @@
     if (setAllTasksDoneButton) {
       setAllTasksDoneButton.addEventListener("click", setAllTasksDone);
     }
+    
     const toggleDoneTasksButton = document.querySelector(".js-hideDoneTasks");
     if (toggleDoneTasksButton) {
       toggleDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
