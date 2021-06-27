@@ -1,54 +1,54 @@
-.list {
+.task {
   list-style-type: none;
-  padding: 20px 15px;
+  padding: 0;
   margin: 0;
-  background-color: white;
 }
 
-.list__item {
+.task__item {
   display: grid;
   grid-template-columns: auto 1fr auto;
+  grid-gap: 20px;
   align-items: center;
+  padding: 10px;
   border-bottom: 1px solid #ddd;
-  padding: 5px;
 }
 
-.list__item--hidden {
+.task__item--hidden {
   display: none;
 }
 
-.list__taskContent {
+.task__taskContent {
   padding: 10px 0;
   word-break: break-all;
 }
 
-.list__taskContent--done {
+.task__taskContent--done {
   text-decoration: line-through;
 }
 
-.list__button {
+.task__button {
   width: 30px;
   height: 30px;
   color: white;
-  margin: 0 10px;
   border: none;
+  padding: 0;
   cursor: pointer;
   transition: background 0.5s;
 }
 
-.list__button--done {
+.task__button--done {
   background-color: hsl(120, 100%, 25%);
 }
 
-.list__button--done:hover {
+.task__button--done:hover {
   background-color: hsl(120, 100%, 30%);
 }
 
-.list__button--done:active {
+.task__button--done:active {
   background-color: hsl(120, 100%, 35%);
 }
 
-.list__button--remove {
+.task__button--remove {
   background-color: hsl(349, 86%, 50%);
 }
 
