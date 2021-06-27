@@ -52,10 +52,10 @@
   background-color: hsl(349, 86%, 50%);
 }
 
-.list__button--remove:hover {
+.task__button--remove:hover {
   background-color: hsl(349, 86%, 55%);
 }
 
-.list__button--remove:active {
+.task__button--remove:active {
   background-color: hsl(349, 86%, 60%);
 }

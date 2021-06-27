@@ -24,13 +24,6 @@
   transition: 0.2s;
   cursor: pointer;
 }
-/*
-@media (max-width: 767px) {
-  .form__button {
-    width: 100%;
-    margin: 15px 0;
-  }
-}*/
 
 .form__button:hover {
   background-color: hsl(180, 100%, 30%);
