@@ -16,4 +16,4 @@ You can then check it by pressing green button, or delete it by pressing red one
 https://krystian-kazmierczak.github.io/todo-list/
 
 ### Author: Krystian Kaźmierczak
-Contact: s155774@gmail.com
+Contact: contact.me@kazmierczak.one
